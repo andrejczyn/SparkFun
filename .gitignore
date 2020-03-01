@@ -1,0 +1,8 @@
+.DS_Store
+.gradle/
+.idea/
+
+SparkFun.iml
+build/
+out/
+tmp/

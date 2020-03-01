@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '4.0.3'
+}
+
+sourceCompatibility = 1.8
+
+mainClassName = 'HelloSpark'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile ('org.apache.spark:spark-sql_2.11:2.3.4') {
+//        exclude group: 'org.glassfish.jersey.bundles.repackaged', module: 'jersey-guava'
+    }
+
+
+    compile ('com.google.cloud:google-cloud-pubsub:1.102.1')
+    configurations.all {
+//        exclude group: 'com.google.guava', module: 'guava'
+    }
+}
+
+shadowJar {
+    zip64 true
+    relocate 'com.google.common.base', 'shadow.com.google.common.base'
+    relocate 'com.google.protobuf', 'shadow.com.google.protobuf'
+}

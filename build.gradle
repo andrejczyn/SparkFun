@@ -6,7 +6,7 @@ plugins {
 
 sourceCompatibility = 1.8
 
-mainClassName = 'HelloSpark'
+mainClassName = 'com.andrejczyn.HelloSpark'
 
 repositories {
     mavenCentral()
@@ -26,6 +26,6 @@ dependencies {
 
 shadowJar {
     zip64 true
-    relocate 'com.google.common.base', 'shadow.com.google.common.base'
-    relocate 'com.google.protobuf', 'shadow.com.google.protobuf'
+    mergeServiceFiles()
+    relocate 'com.google', 'shadow.com.google'
 }

@@ -14,8 +14,8 @@ public class HelloSpark {
                 .appName("Spark SQL basic example")
                 .getOrCreate();
 
-        long count = spark.read().textFile("gs://radiant-arcade-268109-main/test.txt").count();
-        pub.send(count);
+//        long count = spark.read().textFile("gs://radiant-arcade-268109-main/test.txt").count();
+        pub.send(4L);
 
     }
 }
